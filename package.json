@@ -11,11 +11,25 @@
     "angular-animate": "^1.5.8",
     "angular-datepicker": "^1.0.5",
     "angular-route": "^1.6.1",
+    "angular-ui-router": "^0.3.2",
+    "http-server": "^0.6.1",
+    "karma": "~0.10",
+    "karma-junit-reporter": "^0.2.2",
+    "protractor": "^1.1.1",
+    "shelljs": "^0.2.6",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   },
   "scripts": {
-    "wpdev": "webpack --progress --colors --watch --display-error-details"
+    "wpdev": "webpack --progress --colors --watch --display-error-details",
+    "start": "http-server -a localhost -p 8000 -c-1",
+    "pretest": "npm install",
+    "test": "karma start karma.conf.js",
+    "test-single-run": "karma start karma.conf.js  --single-run",
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
   },
   "author": "",
   "license": "ISC"

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="computer">
+<html lang="en" ng-app="store">
   	<head>
     	<title>Justified Nav Template</title>
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
@@ -8,6 +8,12 @@
 		<script type="text/javascript" src="assets/dist/main.js"></script>
   	</head>
   	<body>
-		  		
+  		<ul class="menu">
+  			<li><a ui-sref="home">Home</a></li>
+  			<li><a ui-sref="templates">Templates</a></li>
+  			<li><a href="#/templates">View 1</a></li>
+  			<li><a href="#/view2">View 2</a></li>
+  		</ul>
+		<div ui-view></div> 		
   	</body>
 </html>
