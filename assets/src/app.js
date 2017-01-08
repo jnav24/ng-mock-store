@@ -8,4 +8,4 @@ ng.module('store', [ng_ui_route])
 
 .controller('DefaultController', ['$scope', require(ctrl_dir + 'default/DefaultController.js')])
 .controller('MainController', ['$scope', require(ctrl_dir + 'main/MainController.js')])
-.controller('Templateontroller', ['$scope', require(ctrl_dir + 'template/Templateontroller.js')])
+.controller('TemplateController', ['$scope', '$stateParams', require(ctrl_dir + 'template/TemplateController.js')])

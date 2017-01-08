@@ -1,3 +1,3 @@
-modules.export = function($scope) {
+module.exports = function($scope) {
 	
 };

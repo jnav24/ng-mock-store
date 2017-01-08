@@ -45,16 +45,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var ng = __webpack_require__(1),
-		ng_ui_route = __webpack_require__(11),
+		ng_ui_route = __webpack_require__(3),
 		ctrl_dir = './components/';
 
 	ng.module('store', [ng_ui_route])
 
-	.config(['$urlRouterProvider', '$stateProvider', __webpack_require__(5)])
+	.config(['$urlRouterProvider', '$stateProvider', __webpack_require__(4)])
 
-	.controller('DefaultController', ['$scope', __webpack_require__(6)(ctrl_dir + 'default/DefaultController.js')])
-	.controller('MainController', ['$scope', __webpack_require__(8)(ctrl_dir + 'main/MainController.js')])
-	.controller('Templateontroller', ['$scope', !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())])
+	.controller('DefaultController', ['$scope', __webpack_require__(5)(ctrl_dir + 'default/DefaultController.js')])
+	.controller('MainController', ['$scope', __webpack_require__(7)(ctrl_dir + 'main/MainController.js')])
+	.controller('TemplateController', ['$scope', '$stateParams', __webpack_require__(10)(ctrl_dir + 'template/TemplateController.js')])
 
 /***/ },
 /* 1 */
@@ -33052,105 +33052,7 @@
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
-/* 3 */,
-/* 4 */,
-/* 5 */
-/***/ function(module, exports) {
-
-	module.exports = function($urlRouterProvider, $stateProvider) {
-		var views_dir = 'assets/src/components/';
-		$urlRouterProvider.otherwise('/404');
-		
-		$stateProvider.state('home', {
-			url: '/',
-			templateUrl: views_dir + 'main/main.html',
-			controller: 'MainController'
-		})
-		.state('templates', {
-			url: '/templates',
-			templateUrl: views_dir + 'template/template.html',
-			controller: 'TemplateController'
-		})
-		.state('default', {
-			url: '/404',
-			templateUrl: views_dir + 'default/default.html',
-			controller: 'DefaultController'
-		});
-	};
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var map = {
-		"./components/default/DefaultController.js": 7
-	};
-	function webpackContext(req) {
-		return __webpack_require__(webpackContextResolve(req));
-	};
-	function webpackContextResolve(req) {
-		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
-	};
-	webpackContext.keys = function webpackContextKeys() {
-		return Object.keys(map);
-	};
-	webpackContext.resolve = webpackContextResolve;
-	module.exports = webpackContext;
-	webpackContext.id = 6;
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	module.exports = function($scope) {
-		$scope.name = '404';
-	};
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var map = {
-		"./components/main/MainController.js": 9
-	};
-	function webpackContext(req) {
-		return __webpack_require__(webpackContextResolve(req));
-	};
-	function webpackContextResolve(req) {
-		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
-	};
-	webpackContext.keys = function webpackContextKeys() {
-		return Object.keys(map);
-	};
-	webpackContext.resolve = webpackContextResolve;
-	module.exports = webpackContext;
-	webpackContext.id = 8;
-
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	modules.export = function($scope) {
-		
-	};
-
-/***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	function webpackContext(req) {
-		throw new Error("Cannot find module '" + req + "'.");
-	}
-	webpackContext.keys = function() { return []; };
-	webpackContext.resolve = webpackContext;
-	module.exports = webpackContext;
-	webpackContext.id = 10;
-
-
-/***/ },
-/* 11 */
+/* 3 */
 /***/ function(module, exports) {
 
 	/**
@@ -37762,6 +37664,153 @@
 	  .filter('isState', $IsStateFilter)
 	  .filter('includedByState', $IncludedByStateFilter);
 	})(window, window.angular);
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	module.exports = function($urlRouterProvider, $stateProvider) {
+		var views_dir = 'assets/src/components/';
+		// $urlRouterProvider.otherwise('/404');
+		
+		$stateProvider.state('home', {
+			url: '/',
+			templateUrl: views_dir + 'main/main.html',
+			controller: 'MainController'
+		})
+		.state('templates', {
+			url: '/templates',
+			templateUrl: views_dir + 'template/template.html',
+			controller: 'TemplateController'
+		})
+		.state('template-details', {
+			url: '/templates/:templateId',
+			templateUrl: views_dir + 'template/template-details.html',
+			controller: 'TemplateController'
+		});
+		// .state('default', {
+		// 	url: '/404',
+		// 	templateUrl: views_dir + 'default/default.html',
+		// 	controller: 'DefaultController'
+		// });
+	};
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./components/default/DefaultController.js": 6
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 5;
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	module.exports = function($scope) {
+		$scope.name = '404';
+	};
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./components/main/MainController.js": 8
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 7;
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	module.exports = function($scope) {
+		
+	};
+
+/***/ },
+/* 9 */,
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./components/template/TemplateController.js": 11
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 10;
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	module.exports = function($scope, $stateParams) {
+		$scope.templates = [
+			{
+				template_id: 1,
+				name: 'Blue Template',
+				image: 'blue.jpg',
+				price: '19.99'
+			},
+			{
+				template_id: 2,
+				name: 'Red Template',
+				image: 'red.jpg',
+				price: '19.99'
+			},
+			{
+				template_id: 3,
+				name: 'Green Template',
+				image: 'green.jpg',
+				price: '19.99'
+			}
+		];
+
+		$scope.template = {};
+
+		if (typeof $stateParams.templateId !== 'undefined') {
+			for (var i = 0; i < $scope.templates.length; i++) {
+				if ($scope.templates[i].template_id == $stateParams.templateId) {
+					$scope.template = $scope.templates[i];
+				}
+			}
+		}
+	};
 
 /***/ }
 /******/ ]);

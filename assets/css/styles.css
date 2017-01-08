@@ -1,0 +1,30 @@
+nav + .container {
+	padding-top: 80px;
+}
+
+.back_link {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.img-full {
+	width: 100%;
+}
+
+.templates {
+	text-align: center;
+}
+
+.templates img {
+	width: 70%;
+}
+
+.templates a { 
+	margin: auto;
+	text-align: center;
+	width: 50%;
+}
+
+.templates .col-md-4 {
+	margin-bottom: 20px;
+}
